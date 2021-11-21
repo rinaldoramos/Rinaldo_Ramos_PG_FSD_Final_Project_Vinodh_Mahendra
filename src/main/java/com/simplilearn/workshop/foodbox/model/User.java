@@ -1,7 +1,15 @@
 package com.simplilearn.workshop.foodbox.model;
 
-public class User {
+import javax.persistence.*;
+import java.io.Serializable;
 
+@Entity
+@Table(name = "users")
+public class User implements Serializable {
+
+    @Id
+    @GeneratedValue(strategy = GenerationType.AUTO)
+    @Column(nullable = false, updatable = false)
     private int id;
     private String fname;
     private String lname;

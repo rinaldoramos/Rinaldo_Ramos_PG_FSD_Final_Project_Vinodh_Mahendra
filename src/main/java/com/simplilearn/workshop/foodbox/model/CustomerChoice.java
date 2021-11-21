@@ -4,11 +4,10 @@ import javax.persistence.*;
 import java.io.Serializable;
 
 @Entity
-@Table(name = "products")
-public class Product implements Serializable {
+@Table(name = "selections")
+public class CustomerChoice implements Serializable {
 
     @Id
-    @GeneratedValue(strategy = GenerationType.AUTO)
     @Column(nullable = false, updatable = false)
     private Long id;
     private String imageUrl;
@@ -18,10 +17,11 @@ public class Product implements Serializable {
     private double price;
     private boolean state;
 
-    public Product() {
+    public CustomerChoice() {
     }
 
-    public Product(String imageUrl, String name, String description, double price, String category, boolean state) {
+    public CustomerChoice(Long id, String imageUrl, String name, String description, double price, String category, boolean state) {
+        this.id = id;
         this.imageUrl = imageUrl;
         this.name = name;
         this.description = description;
